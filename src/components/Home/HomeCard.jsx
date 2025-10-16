@@ -2,11 +2,20 @@ import { Link } from "react-router-dom";
 import BASE_URL from "../../lib/baseurl";
 
 const HomeCard = ({ product }) => {
+  const imagePath = product.image;
+
+  // Create the clean image URL using a safe function (or inline logic)
+  const cleanImagePath = imagePath.startsWith("/")
+    ? imagePath.substring(1)
+    : imagePath;
+
+  // The combined URL:
+  const finalImageUrl = `${BASE_URL}${cleanImagePath}`;
   return (
     <Link to={`/products/${product.slug}`}>
       <div className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
         <img
-          src={`${BASE_URL}${product.image}`}
+          src={finalImageUrl}
           alt={product.name}
           className="w-full h-48 object-cover"
         />
