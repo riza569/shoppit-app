@@ -151,7 +151,11 @@ const CartItem = ({ item, setCart }) => {
     <div className="flex justify-between items-center border rounded-lg shadow-sm p-3 mb-3 bg-white">
       <div className="flex items-center gap-4">
         <img
-          src={`${BASE_URL}${item.product.image}`}
+          src={`${BASE_URL}${
+            item.product.image.startsWith("/")
+              ? item.product.image.substring(1)
+              : item.product.image
+          }`}
           alt={item.product.name}
           className="w-16 h-16 object-cover rounded"
         />

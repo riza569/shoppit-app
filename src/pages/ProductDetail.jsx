@@ -72,7 +72,11 @@ const ProductDetail = () => {
     <div className="min-h-screen py-10 px-4 sm:px-6 lg:px-20">
       <div className="flex flex-col md:flex-row items-center gap-10 max-w-6xl mx-auto bg-white rounded-xl shadow-lg p-6">
         <img
-          src={`${BASE_URL}${product.image}`}
+          src={`${BASE_URL}${
+            product.image.startsWith("/")
+              ? product.image.substring(1)
+              : product.image
+          }`}
           alt={product.name}
           className="w-full md:w-1/2 h-80 md:h-96 object-contain rounded-lg"
         />
