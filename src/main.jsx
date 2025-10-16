@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 
 import { RouterProvider } from "react-router-dom";
-import router from "./lib/Router.jsx";
+import router from "./lib/router.jsx";
 
 // Import existing provider and the new AuthProvider
 import CartProvider from "./providers/CartProvider.jsx";
