@@ -21,7 +21,7 @@ const Header = () => {
         {/* Hero Image */}
         <div className="mt-10 lg:mt-0">
           <img
-            src="/src/hero.jpg"
+            src="/hero.jpg"
             alt="Ecommerce Hero"
             className="rounded-xl shadow-2xl w-full max-w-md lg:max-w-lg"
           />

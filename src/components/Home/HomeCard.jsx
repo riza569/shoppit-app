@@ -6,7 +6,7 @@ const HomeCard = ({ product }) => {
     <Link to={`/products/${product.slug}`}>
       <div className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
         <img
-          src={`h${BASE_URL}${product.image}`}
+          src={`${BASE_URL}${product.image}`}
           alt={product.name}
           className="w-full h-48 object-cover"
         />
