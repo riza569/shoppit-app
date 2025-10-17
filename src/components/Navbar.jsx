@@ -15,21 +15,20 @@ const Navbar = () => {
   const displayUsername = user ? user.username || user.user_id : null;
 
   const navLinkClasses =
-    "text-gray-800 hover:text-purple-700 font-semibold transition-colors duration-300";
+    "text-cyan-300 hover:text-violet-400 font-semibold transition-all duration-300 hover:scale-110";
 
   const AuthLinks = (
     <>
       {/* Show Logout and Username if authenticated */}
       <div className="flex items-center space-x-4">
         {displayUsername && (
-          <span className="text-sm font-medium text-gray-700 px-3 py-1 rounded-full bg-purple-100">
-            {/* Now displaying the actual username */}
+          <span className="text-sm font-medium text-cyan-300 px-4 py-2 rounded-full glass-effect border border-violet-500/30">
             Hello, {displayUsername}
           </span>
         )}
         <button
           onClick={logout}
-          className="text-red-600 hover:text-red-800 font-bold transition-colors duration-300 bg-white py-1 px-3 rounded-lg shadow-sm"
+          className="text-white font-semibold transition-all duration-300 bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 py-2 px-5 rounded-lg shadow-lg hover:shadow-red-500/50 transform hover:-translate-y-1 hover:scale-105"
         >
           Logout
         </button>
@@ -50,13 +49,13 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="bg-gradient-to-r from-pink-200 via-purple-200 to-indigo-200 shadow-lg sticky top-0 z-50">
+    <nav className="glass-effect shadow-2xl shadow-violet-500/20 sticky top-0 z-50 border-b border-violet-500/30">
       <div className="max-w-7xl mx-auto px-6 lg:px-20">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link
             to="/"
-            className="text-3xl font-extrabold text-purple-700 hover:text-purple-900 transition-colors"
+            className="text-3xl font-extrabold bg-gradient-to-r from-cyan-400 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent hover:scale-110 transition-all duration-300 animate-neon-pulse"
           >
             Riza
           </Link>
@@ -76,11 +75,13 @@ const Navbar = () => {
             {/* 🛒 Cart Icon */}
             <Link
               to="/cart"
-              className="relative text-gray-800 hover:text-purple-700 transition-colors duration-300"
+              className="relative text-cyan-300 hover:text-violet-400 transition-all duration-300 text-2xl hover:scale-110"
             >
-              🛒
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
               {numCartItems > 0 && (
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                <span className="absolute -top-2 -right-2 bg-gradient-to-r from-pink-500 to-rose-500 text-white text-xs w-6 h-6 flex items-center justify-center rounded-full font-bold shadow-lg shadow-pink-500/50 animate-pulse-glow">
                   {numCartItems}
                 </span>
               )}
@@ -91,7 +92,7 @@ const Navbar = () => {
           <div className="sm:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="focus:outline-none px-3 py-2 rounded-md text-gray-800 bg-white hover:bg-purple-100 transition-colors"
+              className="focus:outline-none px-3 py-2 rounded-lg text-cyan-300 glass-effect hover:bg-violet-500/20 transition-all duration-300 border border-violet-500/30"
             >
               {isOpen ? "✕" : "☰"}
             </button>
@@ -101,18 +102,18 @@ const Navbar = () => {
         {/* Mobile Links */}
         {isOpen && (
           <div
-            className="sm:hidden mt-2 bg-white rounded-md p-4 shadow-md space-y-2"
+            className="sm:hidden mt-2 glass-effect rounded-xl p-4 shadow-2xl border border-violet-500/30 space-y-2 animate-slide-up"
             onClick={() => setIsOpen(false)}
           >
             <Link
               to="/"
-              className="block text-gray-800 hover:text-purple-700 transition-colors duration-300"
+              className="block text-cyan-300 hover:text-violet-400 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-violet-500/20"
             >
               Home
             </Link>
             <a
               href="#cards"
-              className="block text-gray-800 hover:text-purple-700 transition-colors duration-300"
+              className="block text-cyan-300 hover:text-violet-400 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-violet-500/20"
             >
               Products
             </a>
@@ -127,7 +128,7 @@ const Navbar = () => {
                 )}
                 <button
                   onClick={logout}
-                  className="block w-full text-left text-red-600 hover:text-red-800 font-bold transition-colors duration-300"
+                  className="block w-full text-left text-white font-semibold transition-all duration-300 bg-gradient-to-r from-red-500 to-pink-500 py-2 px-3 rounded-lg hover:shadow-lg hover:shadow-red-500/50"
                 >
                   Logout
                 </button>
@@ -136,13 +137,13 @@ const Navbar = () => {
               <>
                 <Link
                   to="/login"
-                  className="block text-gray-800 hover:text-purple-700 transition-colors duration-300"
+                  className="block text-cyan-300 hover:text-violet-400 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-violet-500/20"
                 >
                   Login
                 </Link>
                 <Link
                   to="/register"
-                  className="block text-gray-800 hover:text-purple-700 transition-colors duration-300"
+                  className="block text-cyan-300 hover:text-violet-400 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-violet-500/20"
                 >
                   Register
                 </Link>
@@ -152,14 +153,19 @@ const Navbar = () => {
             {/* 🛒 Cart (mobile) */}
             <Link
               to="/cart"
-              className="block relative text-gray-800 hover:text-purple-700 transition-colors duration-300"
+              className="block relative text-cyan-300 hover:text-violet-400 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-violet-500/20"
             >
-              🛒 Cart
-              {numCartItems > 0 && (
-                <span className="absolute top-0 right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
-                  {numCartItems}
-                </span>
-              )}
+              <span className="flex items-center gap-2">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                Cart
+                {numCartItems > 0 && (
+                  <span className="bg-gradient-to-r from-pink-500 to-rose-500 text-white text-xs px-2 py-0.5 rounded-full font-semibold shadow-lg shadow-pink-500/50 animate-pulse-glow">
+                    {numCartItems}
+                  </span>
+                )}
+              </span>
             </Link>
           </div>
         )}
