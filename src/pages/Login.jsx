@@ -53,39 +53,47 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+    <div className="relative flex justify-center items-center min-h-screen overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-violet-900/50 to-slate-900"></div>
+      <div className="absolute top-20 left-20 w-96 h-96 bg-violet-500/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-20 right-20 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-8 rounded-2xl shadow-md w-96"
+        className="relative glass-effect border border-violet-500/30 p-10 rounded-3xl shadow-2xl shadow-violet-500/20 w-full max-w-md animate-slide-up"
       >
-        <h2 className="text-2xl font-semibold text-center mb-6">Login</h2>
+        <h2 className="text-4xl font-extrabold text-center mb-8">
+          <span className="bg-gradient-to-r from-cyan-400 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent">Welcome Back</span>
+        </h2>
 
         {error && (
-          <p className="text-red-500 text-center mb-4 font-medium">{error}</p>
+          <div className="glass-effect border border-red-500/50 text-red-300 px-4 py-3 rounded-xl mb-6 text-center font-medium">{error}</div>
         )}
 
-        <div className="mb-4">
-          <label className="block mb-1 text-gray-700 font-medium">
+        <div className="mb-6">
+          <label className="block mb-3 text-cyan-300 font-semibold">
             Username
           </label>
           <input
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
+            className="w-full px-4 py-3 glass-effect border border-violet-500/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all text-white placeholder-cyan-300/50"
+            placeholder="Enter your username"
             required
           />
         </div>
 
-        <div className="mb-6">
-          <label className="block mb-1 text-gray-700 font-medium">
+        <div className="mb-8">
+          <label className="block mb-3 text-cyan-300 font-semibold">
             Password
           </label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
+            className="w-full px-4 py-3 glass-effect border border-violet-500/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all text-white placeholder-cyan-300/50"
+            placeholder="Enter your password"
             required
           />
         </div>
@@ -93,9 +101,10 @@ const Login = () => {
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition disabled:opacity-70"
+          className="group relative w-full bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white py-4 rounded-xl font-bold shadow-2xl shadow-violet-500/50 hover:shadow-violet-500/80 transition-all duration-300 transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none overflow-hidden"
         >
-          {loading ? "Logging in..." : "Login"}
+          <span className="absolute inset-0 bg-gradient-to-r from-fuchsia-600 to-violet-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+          <span className="relative">{loading ? "Logging in..." : "Login"}</span>
         </button>
       </form>
     </div>
